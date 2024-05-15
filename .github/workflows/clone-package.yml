@@ -47,10 +47,10 @@ jobs:
         run: |
           gitfolder=$(find -type f -name PKGBUILD | sed 's/PKGBUILD//')
           cd $gitfolder
-          if [ "" ]; then
+          # if [ -z "$(grep python-build PKGBUILD)" ]; then
             # sed -i "/depends=/s/)/ \'xpto\')/" PKGBUILD
             sed -i "/makedepends=/s/)/ \'python-build\' \'python-wheel\' \'python-installer\')/" PKGBUILD
-          fi
+          # fi
 
       - name: Update github
         run: |
